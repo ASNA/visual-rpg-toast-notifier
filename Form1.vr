@@ -1,0 +1,86 @@
+﻿Using System
+Using System.Collections
+Using System.ComponentModel
+Using System.Data
+Using System.Drawing
+Using System.Text
+Using System.Windows.Forms
+Using ToastNotification
+
+BegClass Form1 Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Yes)
+
+    /region Default Constructor
+    
+    BegConstructor Access(*Public)
+        //
+        // Required for Windows Form Designer support
+        //
+        InitializeComponent()
+
+        //
+        // TODO: Add any constructor code after InitializeComponent call
+        //
+    EndConstructor
+
+    /endregion
+
+    DclFld BorderColorSet Type(*Boolean) Inz(*False) 
+
+    BegSr Form1_Load Access(*Private) Event(*this.Load)
+        DclSrParm sender *Object
+        DclSrParm e System.EventArgs
+        
+        comboboxMessageDuration.SelectedIndex = 0        
+    EndSr
+    
+    BegSr buttonShowMessage_Click Access(*Private) Event(*this.buttonShowMessage.Click)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        DclFld t Type(ToastNotification.Toast) New(*This) 
+
+        t = *New Toast(*This) 
+        t.HeaderMessage = textboxHeaderMessage.Text
+        t.Message = textMessage.Text
+
+        If BorderColorSet
+            t.BorderColor = panelFormBorderColor.BackColor
+        EndIf 
+
+        t.HideHeader = checkboxHideHeaderBar.Checked
+
+        If comboboxMessageDuration.SelectedItem.ToString() <> 'Default'
+            t.SecondsDisplayed = Convert.ToInt32(comboboxMessageDuration.Text)
+        EndIf 
+                
+        If    radiobuttonSuccess.Checked
+            t.ToastStatus = t.Status.SUCCESS
+        ElseIf radiobuttonWarning.Checked
+            t.ToastStatus = t.Status.WARNING
+        Else 
+            t.ToastStatus = t.Status.FAILURE
+        EndIf 
+
+        If     radiobuttonTopLeft.Checked
+            t.ToastPosition = t.POSITION.UPPER_LEFT
+        ElseIf radiobuttonTopRight.Checked
+            t.ToastPosition = t.POSITION.UPPER_RIGHT
+        ElseIf radiobuttonBottomRight.Checked
+            t.ToastPosition = t.POSITION.LOWER_RIGHT
+        Else 
+            t.ToastPosition = t.POSITION.LOWER_LEFT
+        EndIf 
+
+        t.Show()
+    EndSr
+    
+    BegSr linklableFormBorderColor_LinkClicked Access(*Private) Event(*this.linklableFormBorderColor.LinkClicked)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.Windows.Forms.LinkLabelLinkClickedEventArgs)
+
+        colorDialog1.ShowDialog()  
+        panelFormBorderColor.BackColor = colorDialog1.Color
+        BorderColorSet = *True 
+    EndSr
+    
+EndClass

@@ -1,0 +1,314 @@
+﻿DclNameSpace ToastNotification
+
+BegClass Form1 Partial(*Yes)
+
+	// Required method for Designer support - do not modify
+	// the contents of this method with the code editor.
+	BegSr InitializeComponent
+		*this.textboxHeaderMessage = *new System.Windows.Forms.TextBox()
+		*this.textMessage = *new System.Windows.Forms.TextBox()
+		*this.buttonShowMessage = *new System.Windows.Forms.Button()
+		*this.colorDialog1 = *new System.Windows.Forms.ColorDialog()
+		*this.linklableFormBorderColor = *new System.Windows.Forms.LinkLabel()
+		*this.panelFormBorderColor = *new System.Windows.Forms.Panel()
+		*this.groupboxDisplayPosition = *new System.Windows.Forms.GroupBox()
+		*this.radiobuttonBottomRight = *new System.Windows.Forms.RadioButton()
+		*this.radiobuttonBottomLeft = *new System.Windows.Forms.RadioButton()
+		*this.radiobuttonTopRight = *new System.Windows.Forms.RadioButton()
+		*this.radiobuttonTopLeft = *new System.Windows.Forms.RadioButton()
+		*this.checkboxHideHeaderBar = *new System.Windows.Forms.CheckBox()
+		*this.comboboxMessageDuration = *new System.Windows.Forms.ComboBox()
+		*this.radioButtonSuccess = *new System.Windows.Forms.RadioButton()
+		*this.radiobuttonWarning = *new System.Windows.Forms.RadioButton()
+		*this.radiobuttonFailure = *new System.Windows.Forms.RadioButton()
+		*this.groupBox1 = *new System.Windows.Forms.GroupBox()
+		*this.label1 = *new System.Windows.Forms.Label()
+		*this.label2 = *new System.Windows.Forms.Label()
+		*this.label3 = *new System.Windows.Forms.Label()
+		*this.label4 = *new System.Windows.Forms.Label()
+		*this.groupboxDisplayPosition.SuspendLayout()
+		*this.groupBox1.SuspendLayout()
+		*this.SuspendLayout()
+		//
+		//textboxHeaderMessage
+		//
+		*this.textboxHeaderMessage.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.textboxHeaderMessage.Location = *new System.Drawing.Point(67I, 167I)
+		*this.textboxHeaderMessage.Name = "textboxHeaderMessage"
+		*this.textboxHeaderMessage.Size = *new System.Drawing.Size(491I, 35I)
+		*this.textboxHeaderMessage.TabIndex = 1I
+		*this.textboxHeaderMessage.Text = "Success"
+		//
+		//textMessage
+		//
+		*this.textMessage.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.textMessage.Location = *new System.Drawing.Point(67I, 260I)
+		*this.textMessage.Multiline = *True
+		*this.textMessage.Name = "textMessage"
+		*this.textMessage.Size = *new System.Drawing.Size(566I, 67I)
+		*this.textMessage.TabIndex = 2I
+		*this.textMessage.Text = "Your file was saved in your Documents folder"
+		//
+		//buttonShowMessage
+		//
+		*this.buttonShowMessage.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.buttonShowMessage.Location = *new System.Drawing.Point(92I, 760I)
+		*this.buttonShowMessage.Name = "buttonShowMessage"
+		*this.buttonShowMessage.Size = *new System.Drawing.Size(411I, 65I)
+		*this.buttonShowMessage.TabIndex = 3I
+		*this.buttonShowMessage.Text = "Show toast"
+		*this.buttonShowMessage.UseVisualStyleBackColor = *True
+		//
+		//linklableFormBorderColor
+		//
+		*this.linklableFormBorderColor.AutoSize = *True
+		*this.linklableFormBorderColor.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.linklableFormBorderColor.LinkColor = System.Drawing.Color.Black
+		*this.linklableFormBorderColor.Location = *new System.Drawing.Point(647I, 557I)
+		*this.linklableFormBorderColor.Name = "linklableFormBorderColor"
+		*this.linklableFormBorderColor.Size = *new System.Drawing.Size(212I, 29I)
+		*this.linklableFormBorderColor.TabIndex = 6I
+		*this.linklableFormBorderColor.TabStop = *True
+		*this.linklableFormBorderColor.Text = "Toast border color"
+		//
+		//panelFormBorderColor
+		//
+		*this.panelFormBorderColor.Location = *new System.Drawing.Point(652I, 589I)
+		*this.panelFormBorderColor.Name = "panelFormBorderColor"
+		*this.panelFormBorderColor.Size = *new System.Drawing.Size(246I, 69I)
+		*this.panelFormBorderColor.TabIndex = 6I
+		//
+		//groupboxDisplayPosition
+		//
+		*this.groupboxDisplayPosition.Controls.Add(*this.radiobuttonBottomRight)
+		*this.groupboxDisplayPosition.Controls.Add(*this.radiobuttonBottomLeft)
+		*this.groupboxDisplayPosition.Controls.Add(*this.radiobuttonTopRight)
+		*this.groupboxDisplayPosition.Controls.Add(*this.radiobuttonTopLeft)
+		*this.groupboxDisplayPosition.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.groupboxDisplayPosition.Location = *new System.Drawing.Point(337I, 377I)
+		*this.groupboxDisplayPosition.Name = "groupboxDisplayPosition"
+		*this.groupboxDisplayPosition.Size = *new System.Drawing.Size(244I, 209I)
+		*this.groupboxDisplayPosition.TabIndex = 7I
+		*this.groupboxDisplayPosition.TabStop = *False
+		*this.groupboxDisplayPosition.Text = "Toast position"
+		//
+		//radiobuttonBottomRight
+		//
+		*this.radiobuttonBottomRight.AutoSize = *True
+		*this.radiobuttonBottomRight.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radiobuttonBottomRight.Location = *new System.Drawing.Point(31I, 148I)
+		*this.radiobuttonBottomRight.Name = "radiobuttonBottomRight"
+		*this.radiobuttonBottomRight.Size = *new System.Drawing.Size(167I, 33I)
+		*this.radiobuttonBottomRight.TabIndex = 3I
+		*this.radiobuttonBottomRight.Text = "Bottom right"
+		*this.radiobuttonBottomRight.UseVisualStyleBackColor = *True
+		//
+		//radiobuttonBottomLeft
+		//
+		*this.radiobuttonBottomLeft.AutoSize = *True
+		*this.radiobuttonBottomLeft.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radiobuttonBottomLeft.Location = *new System.Drawing.Point(31I, 112I)
+		*this.radiobuttonBottomLeft.Name = "radiobuttonBottomLeft"
+		*this.radiobuttonBottomLeft.Size = *new System.Drawing.Size(153I, 33I)
+		*this.radiobuttonBottomLeft.TabIndex = 2I
+		*this.radiobuttonBottomLeft.Text = "BottomLeft"
+		*this.radiobuttonBottomLeft.UseVisualStyleBackColor = *True
+		//
+		//radiobuttonTopRight
+		//
+		*this.radiobuttonTopRight.AutoSize = *True
+		*this.radiobuttonTopRight.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radiobuttonTopRight.Location = *new System.Drawing.Point(31I, 76I)
+		*this.radiobuttonTopRight.Name = "radiobuttonTopRight"
+		*this.radiobuttonTopRight.Size = *new System.Drawing.Size(135I, 33I)
+		*this.radiobuttonTopRight.TabIndex = 1I
+		*this.radiobuttonTopRight.Text = "Top right"
+		*this.radiobuttonTopRight.UseVisualStyleBackColor = *True
+		//
+		//radiobuttonTopLeft
+		//
+		*this.radiobuttonTopLeft.AutoSize = *True
+		*this.radiobuttonTopLeft.Checked = *True
+		*this.radiobuttonTopLeft.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radiobuttonTopLeft.Location = *new System.Drawing.Point(31I, 40I)
+		*this.radiobuttonTopLeft.Name = "radiobuttonTopLeft"
+		*this.radiobuttonTopLeft.Size = *new System.Drawing.Size(120I, 33I)
+		*this.radiobuttonTopLeft.TabIndex = 0I
+		*this.radiobuttonTopLeft.TabStop = *True
+		*this.radiobuttonTopLeft.Text = "Top left"
+		*this.radiobuttonTopLeft.UseVisualStyleBackColor = *True
+		//
+		//checkboxHideHeaderBar
+		//
+		*this.checkboxHideHeaderBar.AutoSize = *True
+		*this.checkboxHideHeaderBar.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.checkboxHideHeaderBar.Location = *new System.Drawing.Point(652I, 489I)
+		*this.checkboxHideHeaderBar.Name = "checkboxHideHeaderBar"
+		*this.checkboxHideHeaderBar.Size = *new System.Drawing.Size(213I, 33I)
+		*this.checkboxHideHeaderBar.TabIndex = 8I
+		*this.checkboxHideHeaderBar.Text = "Hide header bar"
+		*this.checkboxHideHeaderBar.UseVisualStyleBackColor = *True
+		//
+		//comboboxMessageDuration
+		//
+		*this.comboboxMessageDuration.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.comboboxMessageDuration.FormattingEnabled = *True
+		*this.comboboxMessageDuration.Items.AddRange(*new *Object[] {"Default", "2", "4", "6", "8"})
+		*this.comboboxMessageDuration.Location = *new System.Drawing.Point(676I, 419I)
+		*this.comboboxMessageDuration.Name = "comboboxMessageDuration"
+		*this.comboboxMessageDuration.Size = *new System.Drawing.Size(151I, 37I)
+		*this.comboboxMessageDuration.TabIndex = 9I
+		//
+		//radioButtonSuccess
+		//
+		*this.radioButtonSuccess.AutoSize = *True
+		*this.radioButtonSuccess.Checked = *True
+		*this.radioButtonSuccess.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radioButtonSuccess.Location = *new System.Drawing.Point(25I, 42I)
+		*this.radioButtonSuccess.Name = "radioButtonSuccess"
+		*this.radioButtonSuccess.Size = *new System.Drawing.Size(129I, 33I)
+		*this.radioButtonSuccess.TabIndex = 0I
+		*this.radioButtonSuccess.TabStop = *True
+		*this.radioButtonSuccess.Text = "Success"
+		*this.radioButtonSuccess.UseVisualStyleBackColor = *True
+		//
+		//radiobuttonWarning
+		//
+		*this.radiobuttonWarning.AutoSize = *True
+		*this.radiobuttonWarning.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radiobuttonWarning.Location = *new System.Drawing.Point(25I, 78I)
+		*this.radiobuttonWarning.Name = "radiobuttonWarning"
+		*this.radiobuttonWarning.Size = *new System.Drawing.Size(127I, 33I)
+		*this.radiobuttonWarning.TabIndex = 1I
+		*this.radiobuttonWarning.Text = "Warning"
+		*this.radiobuttonWarning.UseVisualStyleBackColor = *True
+		//
+		//radiobuttonFailure
+		//
+		*this.radiobuttonFailure.AutoSize = *True
+		*this.radiobuttonFailure.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.radiobuttonFailure.Location = *new System.Drawing.Point(25I, 114I)
+		*this.radiobuttonFailure.Name = "radiobuttonFailure"
+		*this.radiobuttonFailure.Size = *new System.Drawing.Size(113I, 33I)
+		*this.radiobuttonFailure.TabIndex = 2I
+		*this.radiobuttonFailure.Text = "Failure"
+		*this.radiobuttonFailure.UseVisualStyleBackColor = *True
+		//
+		//groupBox1
+		//
+		*this.groupBox1.Controls.Add(*this.radiobuttonFailure)
+		*this.groupBox1.Controls.Add(*this.radiobuttonWarning)
+		*this.groupBox1.Controls.Add(*this.radioButtonSuccess)
+		*this.groupBox1.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.groupBox1.Location = *new System.Drawing.Point(67I, 377I)
+		*this.groupBox1.Name = "groupBox1"
+		*this.groupBox1.Size = *new System.Drawing.Size(214I, 189I)
+		*this.groupBox1.TabIndex = 4I
+		*this.groupBox1.TabStop = *False
+		*this.groupBox1.Text = "Toast status"
+		//
+		//label1
+		//
+		*this.label1.AutoSize = *True
+		*this.label1.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.label1.Location = *new System.Drawing.Point(636I, 377I)
+		*this.label1.Name = "label1"
+		*this.label1.Size = *new System.Drawing.Size(280I, 29I)
+		*this.label1.TabIndex = 10I
+		*this.label1.Text = "Toast duration (seconds)"
+		//
+		//label2
+		//
+		*this.label2.AutoSize = *True
+		*this.label2.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.label2.Location = *new System.Drawing.Point(62I, 228I)
+		*this.label2.Name = "label2"
+		*this.label2.Size = *new System.Drawing.Size(222I, 29I)
+		*this.label2.TabIndex = 11I
+		*this.label2.Text = "Toast message text"
+		//
+		//label3
+		//
+		*this.label3.AutoSize = *True
+		*this.label3.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.label3.Location = *new System.Drawing.Point(62I, 130I)
+		*this.label3.Name = "label3"
+		*this.label3.Size = *new System.Drawing.Size(199I, 29I)
+		*this.label3.TabIndex = 12I
+		*this.label3.Text = "Toast header text"
+		//
+		//label4
+		//
+		*this.label4.AutoSize = *True
+		*this.label4.Font = *new System.Drawing.Font("Microsoft Sans Serif", 15, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.label4.Location = *new System.Drawing.Point(63I, 38I)
+		*this.label4.Name = "label4"
+		*this.label4.Size = *new System.Drawing.Size(296I, 36I)
+		*this.label4.TabIndex = 13I
+		*this.label4.Text = "Toast message tester"
+		//
+		//Form1
+		//
+		*this.AutoScaleDimensions = *new System.Drawing.SizeF(144, 144)
+		*this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+		*this.ClientSize = *new System.Drawing.Size(1058I, 884I)
+		*this.Controls.Add(*this.label4)
+		*this.Controls.Add(*this.label3)
+		*this.Controls.Add(*this.label2)
+		*this.Controls.Add(*this.label1)
+		*this.Controls.Add(*this.comboboxMessageDuration)
+		*this.Controls.Add(*this.checkboxHideHeaderBar)
+		*this.Controls.Add(*this.groupboxDisplayPosition)
+		*this.Controls.Add(*this.panelFormBorderColor)
+		*this.Controls.Add(*this.linklableFormBorderColor)
+		*this.Controls.Add(*this.groupBox1)
+		*this.Controls.Add(*this.buttonShowMessage)
+		*this.Controls.Add(*this.textMessage)
+		*this.Controls.Add(*this.textboxHeaderMessage)
+		*this.Name = "Form1"
+		*this.Text = "Toast message tester"
+		*this.groupboxDisplayPosition.ResumeLayout(*False)
+		*this.groupboxDisplayPosition.PerformLayout()
+		*this.groupBox1.ResumeLayout(*False)
+		*this.groupBox1.PerformLayout()
+		*this.ResumeLayout(*False)
+		*this.PerformLayout()
+	EndSr
+	
+	DclFld textboxHeaderMessage Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
+	DclFld textMessage Type(System.Windows.Forms.TextBox) Access(*Private) WithEvents(*Yes)
+	DclFld buttonShowMessage Type(System.Windows.Forms.Button) Access(*Private) WithEvents(*Yes)
+	DclFld colorDialog1 Type(System.Windows.Forms.ColorDialog) Access(*Private) WithEvents(*Yes)
+	DclFld linklableFormBorderColor Type(System.Windows.Forms.LinkLabel) Access(*Private) WithEvents(*Yes)
+	DclFld panelFormBorderColor Type(System.Windows.Forms.Panel) Access(*Private) WithEvents(*Yes)
+	DclFld groupboxDisplayPosition Type(System.Windows.Forms.GroupBox) Access(*Private) WithEvents(*Yes)
+	DclFld radiobuttonBottomRight Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld radiobuttonBottomLeft Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld radiobuttonTopRight Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld radiobuttonTopLeft Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld checkboxHideHeaderBar Type(System.Windows.Forms.CheckBox) Access(*Private) WithEvents(*Yes)
+	DclFld comboboxMessageDuration Type(System.Windows.Forms.ComboBox) Access(*Private) WithEvents(*Yes)
+	DclFld radioButtonSuccess Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld radiobuttonWarning Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld radiobuttonFailure Type(System.Windows.Forms.RadioButton) Access(*Private) WithEvents(*Yes)
+	DclFld groupBox1 Type(System.Windows.Forms.GroupBox) Access(*Private) WithEvents(*Yes)
+	DclFld label1 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
+	DclFld label2 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
+	DclFld label3 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
+	DclFld label4 Type(System.Windows.Forms.Label) Access(*Private) WithEvents(*Yes)
+	//Required by the Windows Form Designer
+	DclFld components Type(System.ComponentModel.IContainer) Inz(*Nothing)
+	
+	// Clean up any resources being used.
+	// "disposing" is true if managed resources should be disposed; otherwise, false.
+	BegSr Dispose Access(*Protected) Modifier(*Overrides)
+		DclSrParm disposing Type(*Boolean)
+
+		If (disposing *And (components *NE *Nothing))
+			components.Dispose()
+		EndIf
+			
+		*Base.Dispose(disposing)
+	EndSr
+	
+EndClass

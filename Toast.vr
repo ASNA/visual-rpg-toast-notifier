@@ -1,0 +1,167 @@
+﻿Using System
+Using System.Collections
+Using System.ComponentModel
+Using System.Data
+Using System.Drawing
+Using System.Text
+Using System.Windows.Forms
+
+DclNamespace ToastNotification
+
+BegClass Toast Extends(System.Windows.Forms.Form) Access(*Public) Partial(*Yes)
+    DclFld OwnerForm Type(Form) 
+
+    // These fields govern the fade in and fade out of the toast.
+    DclFld timer Type(Timer)
+    DclFld timerMode Type(*String)
+    DclFld steps Type(*Integer4) 
+    DclFld currentStep Type(*Integer4) 
+    DclFld duration Type(*Integer4) 
+
+    // The timer to close the toast.        
+    DclFld closeTimer Type(Timer) 
+                                    
+    // Default duration in in milliseconds
+    DclConst DEFAULT_TOAST_DURATION Value(2500)  
+
+    // Can't assign a color value to a constant! 
+    DclFld DEFAULT_BORDER_COLOR Type(Color) Inz(Color.LightSteelBlue)
+    
+    BegEnum Status Access(*Public)
+        DclEnumFld SUCCESS
+        DclEnumFld WARNING
+        DclEnumFld FAILURE
+    EndEnum
+
+    // Toast properties.
+    DclProp HeaderMessage Type(*String) Access(*Public)
+    DclProp Message Type(*String) Access(*Public)
+    DclProp HideHeader Type(*Boolean) Access(*Public) 
+    DclProp ToastStatus Type(*Integer4) Access(*Public) 
+    DclProp BorderColor Type(Color) Access(*Public) 
+    DclProp ToastPosition Type(*Integer4) Access(*Public)
+    DclProp SecondsDisplayed Type(*Integer4) Access(*Public)  
+
+    BegEnum Position Access(*Public)
+        DclEnumFld UPPER_LEFT
+        DclEnumFld UPPER_RIGHT
+        DclEnumFld LOWER_LEFT
+        DclEnumFld LOWER_RIGHT
+    EndEnum
+
+    BegConstructor Access(*Public)
+        DclSrParm OwnerForm Type(Form) 
+
+        InitializeComponent()
+        *This.OwnerForm = OwnerForm
+    EndConstructor
+   
+    BegSr Growler_Load Access(*Private) Event(*this.Load)
+        DclSrParm sender Type(*Object)
+        DclSrParm e Type(System.EventArgs)
+
+        If BorderColor.Name = "0"
+            BorderColor = DEFAULT_BORDER_COLOR 
+        EndIf 
+
+        labelHeaderMessage.Text = HeaderMessage
+        labelMessage.Text = Message
+        
+        *This.BackColor = BorderColor
+
+        If ToastStatus = Status.FAILURE
+            panelHeaderBar.BackColor = Color.Red
+            labelHeaderMessage.ForeColor = Color.White
+
+        ElseIf ToastStatus = Status.WARNING
+            panelHeaderBar.BackColor = Color.Yellow
+            labelHeaderMessage.ForeColor = Color.Black
+
+        Else            
+            // Default is success.
+            panelHeaderBar.BackColor = Color.MediumSeaGreen
+            labelHeaderMessage.ForeColor = Color.White
+        EndIf 
+
+        If HideHeader
+            panelHeaderBar.Visible = *False
+            *This.Height = *This.Height - panelHeaderBar.Height + 20
+            MessagePanel.Height = MessagePanel.Height - panelHeaderBar.Height + 20
+            labelMessage.Top = (*This.Height / 2) - (labelMessage.Height / 2)
+        EndIf
+
+        //If Position = UPPER_LEFT
+        If ToastPosition = Position.UPPER_LEFT
+            *This.Left = *This.OwnerForm.Left + 20
+            *This.Top = *This.OwnerForm.Top + 10 
+
+        //ElseIf Position = UPPER_RIGHT
+        ElseIf ToastPosition = Position.UPPER_RIGHT
+            *This.Left = *This.OwnerForm.Left + *This.OwnerForm.Width - *This.Width - 20
+            *This.Top = *This.OwnerForm.Top + 10 
+
+        //ElseIf Position = LOWER_RIGHT
+        ElseIf ToastPosition = Position.LOWER_RIGHT
+            *This.Left = *This.OwnerForm.Left + *This.OwnerForm.Width - *This.Width - 20
+            *This.Top = *This.OwnerForm.Top + *This.OwnerForm.Height - *This.Height - 20 
+
+        Else
+            // Default is LOWER_LEFT 
+            *This.Left = *This.OwnerForm.Left + 20
+            *This.Top = *This.OwnerForm.Top + *This.OwnerForm.Height - *This.Height - 20 
+        EndIf 
+        
+        *This.Opacity = 0
+
+        SecondsDisplayed = (SecondsDisplayed > 0) ? SecondsDisplayed * 1000 : DEFAULT_TOAST_DURATION
+        
+        FadeForm('fadein')
+        closeTimer = *New Timer()
+        closeTimer.Interval = SecondsDisplayed
+        AddHandler SourceEvent(Tick) SourceObject(closeTimer) HandlerObject(*This) HandlerSr(FadeFormAway) 
+        closeTimer.Start()
+    EndSr
+
+    BegSr FadeForm
+        DclSrParm timerMode Type(*String) 
+
+        duration = 1500
+        steps = 10       
+        currentStep = 0 
+
+        timer = *new Timer()
+        timer.Interval = duration / steps
+        *This.timerMode = timerMode
+        AddHandler SourceEvent(Tick) SourceObject(timer) HandlerObject(*This) HandlerSr(FadeInOrOut) 
+
+        timer.Start()
+    EndSr
+
+    BegSr FadeFormAway
+        DclSrParm Sender Type(*Object) 
+        DclSrParm e Type(EventArgs) 
+
+        closeTimer.Stop()
+        closeTimer.Dispose()
+        FadeForm('fadeout')
+    EndSr 
+
+    BegSr FadeInOrOut
+        DclSrParm Sender Type(*Object) 
+        DclSrParm e Type(EventArgs) 
+
+        If timerMode = 'fadein'            
+            *This.Opacity = *This.Opacity + ((duration *as *Decimal) / steps) * .001
+        Else 
+            *This.Opacity = *This.Opacity - ((duration *as *Decimal) / steps) * .001
+        EndIf 
+
+        currentStep += 1
+
+        If (currentStep >= steps)
+            timer.Stop()
+            timer.Dispose()
+        EndIf       
+    EndSr
+
+EndClass

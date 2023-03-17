@@ -1,0 +1,93 @@
+﻿DclNamespace ToastNotification
+
+BegClass Toast Partial(*Yes)
+	DclFld messagePanel Type(System.Windows.Forms.Panel) Access(*Private) WithEvents(*Yes)
+	DclFld labelMessage Type(System.Windows.Forms.Label) Access(*Public) WithEvents(*Yes)
+	DclFld panelHeaderBar Type(System.Windows.Forms.Panel) Access(*Public) WithEvents(*Yes)
+	DclFld labelHeaderMessage Type(System.Windows.Forms.Label) Access(*Public) WithEvents(*Yes)
+
+	// Required method for Designer support - do not modify
+	// the contents of this method with the code editor.
+	BegSr InitializeComponent
+		*this.labelMessage = *new System.Windows.Forms.Label()
+		*this.panelHeaderBar = *new System.Windows.Forms.Panel()
+		*this.labelHeaderMessage = *new System.Windows.Forms.Label()
+		*this.messagePanel = *new System.Windows.Forms.Panel()
+		*this.panelHeaderBar.SuspendLayout()
+		*this.messagePanel.SuspendLayout()
+		*this.SuspendLayout()
+		//
+		//labelMessage
+		//
+		*this.labelMessage.BackColor = System.Drawing.Color.WhiteSmoke
+		*this.labelMessage.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.labelMessage.Location = *new System.Drawing.Point(31I, 91I)
+		*this.labelMessage.Name = "labelMessage"
+		*this.labelMessage.Size = *new System.Drawing.Size(511I, 69I)
+		*this.labelMessage.TabIndex = 0I
+		*this.labelMessage.Text = "This is a message that is a little long but does a good job testing this little Growler idea"
+		//
+		//panelHeaderBar
+		//
+		*this.panelHeaderBar.BackColor = System.Drawing.Color.MediumSeaGreen
+		*this.panelHeaderBar.Controls.Add(*this.labelHeaderMessage)
+		*this.panelHeaderBar.Location = *new System.Drawing.Point(12I, 19I)
+		*this.panelHeaderBar.Name = "panelHeaderBar"
+		*this.panelHeaderBar.Size = *new System.Drawing.Size(536I, 41I)
+		*this.panelHeaderBar.TabIndex = 1I
+		//
+		//labelHeaderMessage
+		//
+		*this.labelHeaderMessage.AutoSize = *True
+		*this.labelHeaderMessage.Font = *new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (0 *As System.Byte))
+		*this.labelHeaderMessage.ForeColor = System.Drawing.SystemColors.ButtonFace
+		*this.labelHeaderMessage.Location = *new System.Drawing.Point(13I, 6I)
+		*this.labelHeaderMessage.Name = "labelHeaderMessage"
+		*this.labelHeaderMessage.Size = *new System.Drawing.Size(110I, 29I)
+		*this.labelHeaderMessage.TabIndex = 0I
+		*this.labelHeaderMessage.Text = "Success!"
+		//
+		//messagePanel
+		//
+		*this.messagePanel.BackColor = System.Drawing.Color.WhiteSmoke
+		*this.messagePanel.Controls.Add(*this.panelHeaderBar)
+		*this.messagePanel.Location = *new System.Drawing.Point(6I, 11I)
+		*this.messagePanel.Name = "messagePanel"
+		*this.messagePanel.Size = *new System.Drawing.Size(564I, 166I)
+		*this.messagePanel.TabIndex = 2I
+		//
+		//Growler
+		//
+		*this.AutoScaleDimensions = *new System.Drawing.SizeF(9, 20)
+		*this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+		*this.BackColor = System.Drawing.Color.LightSlateGray
+		*this.ClientSize = *new System.Drawing.Size(579I, 190I)
+		*this.Controls.Add(*this.labelMessage)
+		*this.Controls.Add(*this.messagePanel)
+		*this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+		*this.Name = "Growler"
+		*this.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+		*this.Text = "Growler"
+		*this.TopMost = *True
+		*this.panelHeaderBar.ResumeLayout(*False)
+		*this.panelHeaderBar.PerformLayout()
+		*this.messagePanel.ResumeLayout(*False)
+		*this.ResumeLayout(*False)
+	EndSr
+	
+	//Required by the Windows Form Designer
+	DclFld components Type(System.ComponentModel.IContainer) Inz(*Nothing)
+	
+	// Clean up any resources being used.
+	// "disposing" is true if managed resources should be disposed; otherwise, false.
+	BegSr Dispose Access(*Protected) Modifier(*Overrides)
+		DclSrParm disposing Type(*Boolean)
+
+		If (disposing *And (components *NE *Nothing))
+			components.Dispose()
+		EndIf
+			
+		*Base.Dispose(disposing)
+	EndSr
+	
+EndClass
